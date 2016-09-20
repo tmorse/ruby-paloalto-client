@@ -14,6 +14,15 @@ module PaloAlto
       #
       #  * +Exception+ - Raises an exception if the request is unsuccessful
       def nat_policies
+        options = {}
+        options[:url]     = self.endpoint
+        options[:method]  = :post
+        options[:payload] = { type:   "config",
+                              action: "show",
+                              key:    self.auth_key,
+                              xpath:  "/config/devices" }
+
+        html_result = Helpers::Rest.make_request(options)
       end
     end
   end
