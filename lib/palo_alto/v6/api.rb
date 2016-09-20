@@ -7,6 +7,7 @@ require "palo_alto/v6/security_rule_api"
 require "palo_alto/v6/commit_api"
 require "palo_alto/v6/zone_api"
 require "palo_alto/v6/job_api"
+require "palo_alto/v6/nat_policy_api"
 
 module PaloAlto
   module V6
