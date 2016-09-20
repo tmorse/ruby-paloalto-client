@@ -17,10 +17,10 @@ module PaloAlto
         options = {}
         options[:url]     = self.endpoint
         options[:method]  = :post
-        options[:payload] = { type:   "config",
-                              action: "show",
-                              key:    self.auth_key,
-                              xpath:  "/config/devices" }
+        options[:payload] = { type:   "op",
+                              cmd "show><running><nat-policy></nat-policy></running></show>",
+                              key:    self.auth_key
+                            }
 
         html_result = Helpers::Rest.make_request(options)
       end
