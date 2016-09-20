@@ -3,7 +3,7 @@ require "palo_alto/models/virtual_system"
 
 module PaloAlto
   module V6
-    module NatPolicyAPI
+    module NatPolicyApi
       # Parse out the nat_polices from a response to query for nat_policies
       #
       # == Returns
