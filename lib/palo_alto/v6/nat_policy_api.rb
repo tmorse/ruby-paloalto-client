@@ -18,7 +18,7 @@ module PaloAlto
         options[:url]     = self.endpoint
         options[:method]  = :post
         options[:payload] = { type:   "op",
-                              cmd "show><running><nat-policy></nat-policy></running></show>",
+                              cmd:    "<show><running><nat-policy></nat-policy></running></show>",
                               key:    self.auth_key
                             }
 
