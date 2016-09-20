@@ -22,6 +22,7 @@ module PaloAlto
       include PaloAlto::V6::CommitApi
       include PaloAlto::V6::ZoneApi
       include PaloAlto::V6::JobApi
+      include PaloAlto::V6::NatPolicyApi
 
 
       # Request a configuration based on the starting XML path.
