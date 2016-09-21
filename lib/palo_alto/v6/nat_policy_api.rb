@@ -29,37 +29,34 @@ module PaloAlto
 
         node = doc.root
 
-        p doc.to_xml
-        #
-        # p node.attributes
-        # if node.name != "response"
-        #   puts "ERROR, expected a result node but found #{node.name}"
-        # end
-        #
-        # if node['status'] != "success"
-        #   puts "ERROR,  result node not successful it was #{node['status']}"
-        # end
-        #
-        # if node.elems.length != 1
-        #   puts "ERROR, expected one child note for response node"
-        # end
-        #
-        # node = node.elems[0]
-        #
-        # if node.name != "result"
-        #   puts "ERROR, expected a result node but found #{node.name}"
-        # end
-        #
-        #
-        # if node.elems.length != 1
-        #   puts "ERROR, expected one child node for result node"
-        # end
-        #
-        # node = node.elems[0]
-        #
-        # if node.name != "member"
-        #   puts "ERROR, expected a member node but found #{node.name}"
-        # end
+        if node.name != "response"
+          puts "ERROR, expected a result node but found #{node.name}"
+        end
+
+        if node['status'] != "success"
+          puts "ERROR,  result node not successful it was #{node['status']}"
+        end
+
+        if node.elems.length != 1
+          puts "ERROR, expected one child note for response node"
+        end
+
+        node = node.elems[0]
+
+        if node.name != "result"
+          puts "ERROR, expected a result node but found #{node.name}"
+        end
+
+
+        if node.elems.length != 1
+          puts "ERROR, expected one child node for result node"
+        end
+
+        node = node.elems[0]
+
+        if node.name != "member"
+          puts "ERROR, expected a member node but found #{node.name}"
+        end
         
       end
     end
