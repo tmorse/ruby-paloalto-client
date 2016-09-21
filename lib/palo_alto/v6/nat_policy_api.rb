@@ -25,7 +25,7 @@ module PaloAlto
         html_result = Helpers::Rest.make_request(options)
         
 
-        doc = Nokogiri::XML(f)
+        doc = Nokogiri::XML(html_result)
 
         node = doc.root
 
