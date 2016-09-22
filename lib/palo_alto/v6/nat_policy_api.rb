@@ -28,7 +28,7 @@ module PaloAlto
         doc = Nokogiri::XML(html_result)
 
         node = doc.root
-
+        p node
         if node.name != "response"
           puts "ERROR, expected a result node but found #{node.name}"
         end
@@ -40,8 +40,9 @@ module PaloAlto
         if node.children.length != 1
           puts "ERROR, expected one child note for response node"
         end
-
+        
         node = node.child
+        p node
 
         if node.name != "result"
           puts "ERROR, expected a result node but found #{node.name}"
@@ -53,6 +54,7 @@ module PaloAlto
         end
 
         node = node.child
+        p node
 
         if node.name != "member"
           puts "ERROR, expected a member node but found #{node.name}"
