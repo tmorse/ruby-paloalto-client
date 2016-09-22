@@ -28,7 +28,7 @@ module PaloAlto
 
         policy_text = doc.xpath("//response/result/member/text()").text
         
-        put policy_text
+        puts policy_text
 
         # if node['status'] != "success"
         #   puts "ERROR,  result node not successful it was #{node['status']}"
