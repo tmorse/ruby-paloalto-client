@@ -26,9 +26,9 @@ module PaloAlto
         
         doc = Nokogiri::XML(html_result)
 
-        policy_text = doc.xpath("//response/result/member/text()")
+        policy_text = doc.xpath("//response/result/member/text()").text
         
-        p policy_text
+        put policy_text
 
         # if node['status'] != "success"
         #   puts "ERROR,  result node not successful it was #{node['status']}"
