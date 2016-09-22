@@ -24,11 +24,12 @@ module PaloAlto
 
         html_result = Helpers::Rest.make_request(options)
         
+        puts html_result
 
         doc = Nokogiri::XML(html_result)
 
         node = doc.root
-        p node
+        # p node
         if node.name != "response"
           puts "ERROR, expected a result node but found #{node.name}"
         end
@@ -42,7 +43,7 @@ module PaloAlto
         end
         
         node = node.child
-        p node
+        # p node
 
         if node.name != "result"
           puts "ERROR, expected a result node but found #{node.name}"
@@ -54,7 +55,7 @@ module PaloAlto
         end
 
         node = node.child
-        p node
+        # p node
 
         if node.name != "member"
           puts "ERROR, expected a member node but found #{node.name}"
