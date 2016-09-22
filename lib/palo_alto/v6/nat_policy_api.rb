@@ -24,42 +24,17 @@ module PaloAlto
 
         html_result = Helpers::Rest.make_request(options)
         
-        puts html_result
-
         doc = Nokogiri::XML(html_result)
 
-        node = doc.root
-        if node.name != "response"
-          puts "ERROR, expected a result node but found #{node.name}"
-        end
-
-        if node['status'] != "success"
-          puts "ERROR,  result node not successful it was #{node['status']}"
-        end
-
-        if node.elements.length != 1
-          puts "ERROR, expected one child note for response node"
-        end
+        member_node = doc.xpath("//response/result/member")
         
-        node = node.element
-        # p node
+        p member_node
 
-        if node.name != "result"
-          puts "ERROR, expected a result node but found #{node.name}"
-        end
+        # if node['status'] != "success"
+        #   puts "ERROR,  result node not successful it was #{node['status']}"
+        # end
 
-
-        if node.elements.length != 1
-          puts "ERROR, expected one child node for result node"
-        end
-
-        node = node.element
-        # p node
-
-        if node.name != "member"
-          puts "ERROR, expected a member node but found #{node.name}"
-        end
-        
+     
       end
     end
   end
