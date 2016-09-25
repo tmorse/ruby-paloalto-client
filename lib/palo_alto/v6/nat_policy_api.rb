@@ -1,5 +1,5 @@
-require "palo_alto/models/device"
-require "palo_alto/models/virtual_system"
+require "palo_alto/models/nat_policy"
+require 'palo_alto/v6/config_parser'
 
 module PaloAlto
   module V6
@@ -27,8 +27,9 @@ module PaloAlto
         doc = Nokogiri::XML(html_result)
 
         policy_text = doc.xpath("//response/result/member/text()").text
-        
-        policy_text
+          
+        parser = PaloAlto::V6::ConfigParser.new
+        parser.parse(policy_text)
 
         # if node['status'] != "success"
         #   puts "ERROR,  result node not successful it was #{node['status']}"
